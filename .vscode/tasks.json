@@ -1,0 +1,110 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "tsc",
+      "type": "npm",
+      "script": "tsc:watch",
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "never",
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "group": "main"
+      },
+      "problemMatcher": {
+        "base": "$tsc-watch",
+        "applyTo": "allDocuments"
+      },
+      "dependsOn": [
+        "install deps"
+      ]
+    },
+    {
+      "label": "dev",
+      "type": "npm",
+      "script": "dev",
+      "isBackground": true,
+      "group": "build",
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "never",
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "group": "main"
+      },
+      "problemMatcher": [],
+      "dependsOn": [
+        "install deps"
+      ]
+    },
+    {
+      "label": "profile",
+      "type": "npm",
+      "script": "profile",
+      "isBackground": true,
+      "group": "build",
+      "presentation": {
+        "reveal": "never",
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "group": "main"
+      },
+      "problemMatcher": [],
+      "dependsOn": [
+        "install deps"
+      ]
+    },
+    {
+      "label": "install deps",
+      "type": "npm",
+      "script": "install",
+      "isBackground": true,
+      "group": "build",
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "never",
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "group": "main"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "rollup",
+      "type": "npm",
+      "script": "rollup:watch",
+      "isBackground": true,
+      "group": "build",
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "reveal": "never",
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "group": "main"
+      },
+      "problemMatcher": [],
+      "dependsOn": [
+        "install deps"
+      ]
+    }
+  ]
+}
