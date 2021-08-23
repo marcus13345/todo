@@ -21,16 +21,19 @@ const Form = ({
   }, []);
 
   const modifiedChildren = useMemo(() => {
-    return children.map(child => {
+    return React.Children.map(children, child => {
       return React.cloneElement(
-        child
+        child,
+        {
+          updateData: handleData
+        }
       )
-    })
-  }, [children])
+    });
+  }, [children]);
 
   return (
     <Box flexDirection="column">
-      
+      {modifiedChildren}
     </Box>
   );
 }

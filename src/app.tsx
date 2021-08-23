@@ -46,7 +46,7 @@ const App = () => {
   }, []);
   
   useEffect(() => {
-    mongoose.connect('mongodb://localhost', {
+    mongoose.connect('mongodb+srv://todo:todo@cluster0.phn2o.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true
     }).then(() => new Promise(res => setTimeout(res, 1000))).then(() => {
