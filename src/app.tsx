@@ -36,6 +36,7 @@ const useMounted = () => {
 const App = () => {
   const [connected, setConnected] = useState(false);
   const [columns, rows] = useStdoutDimensions();
+  const [error, setError] = useState(null);
   const { exit } = useApp();
 
   useEffect(() => {
@@ -51,6 +52,8 @@ const App = () => {
       useUnifiedTopology: true
     }).then(() => new Promise(res => setTimeout(res, 1000))).then(() => {
       setConnected(true);
+    }).catch(e => {
+      setError(e);
     })
   }, []);
 
@@ -61,15 +64,19 @@ const App = () => {
       height={rows}
       width={columns}
     >
-      {!connected &&
+      {(!connected) && (
         <Box
           alignItems="center"
           justifyContent="center"
           width="100%"
         >
-          <Text>Connecting to Task Database...</Text>
+          {(error) && (
+            <Text>{error.message}</Text>
+          ) || (
+            <Text>Connecting to Task Database...</Text>
+          )}
         </Box>
-      ||
+      ) || (
         <Multiview
           screens={[
             {
@@ -82,7 +89,7 @@ const App = () => {
             }
           ]}
         />
-      }
+      )}
     </Box>
   );;;
 };
