@@ -34,9 +34,6 @@
       "script": "dev",
       "isBackground": true,
       "group": "build",
-      "runOptions": {
-        "runOn": "folderOpen"
-      },
       "presentation": {
         "reveal": "never",
         "echo": false,
