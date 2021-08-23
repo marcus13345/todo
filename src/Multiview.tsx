@@ -20,6 +20,8 @@ export default function Multiview(props: Props) {
   }, [screens, screenIdx]);
 
   useInput((key) => {
+    // on raspi its ^[[[A, no idea why...
+    if(key.startsWith('^[')) key = key.substr(2);
     // F1 === [[A, F2 === [[B ... F5
     if(['[[A', '[[B', '[[C', '[[D', '[[E'].includes(key)) {
       const newIdx = key.charCodeAt(2) - 65;
