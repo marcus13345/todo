@@ -1,3 +1,4 @@
+#!/bin/bash
 pwd;
 read -p "continue"
 git fetch;
